@@ -1,0 +1,29 @@
+{
+    "name": "utils-action",
+    "version": "0.0.1",
+    "description": "Utilities to help with push/pull_request events, e.g. calculating artifact names",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "ncc build --target es2019 src/index.ts",
+        "watch": "ncc build --target es2019 -w src/index.ts"
+    },
+    "author": {
+        "name": "Kelvin Schoofs",
+        "email": "schoofs.kelvin@gmail.com",
+        "url": "https://github.com/SchoofsKelvin"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SchoofsKelvin/on-push-utils-action"
+    },
+    "license": "LGPL-3.0-only",
+    "dependencies": {
+        "@actions/core": "^1.2.6",
+        "@actions/github": "^4.0.0"
+    },
+    "devDependencies": {
+        "@types/node": "^12",
+        "@vercel/ncc": "^0.27.0",
+        "typescript": "^4.1.5"
+    }
+}

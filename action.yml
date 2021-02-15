@@ -1,0 +1,24 @@
+name: 'OnPush Utils'
+description: 'Utilities to help with push events, e.g. calculating artifact names'
+inputs:
+  artifact_prefix:
+    description: 'The prefix that artifact names should start with. A trailing dash ("-") will be added if missing'
+    required: false
+  artifact_extension:
+    description: 'The extension to use for calculating artifact names. A leading dot (".") will be added if missing'
+    required: false
+  append_sha:
+    description: 'Whether to make sure the first 8 characters of the commit SHA are part of the formatted_name'
+    required: false
+outputs:
+  formatted_name:
+    description: 'A nicely formatted name. See the README for more details'
+  artifact_name:
+    description: 'This outputs "[artifact_prefix-]formatted_name[.artifact_extension]" based on the presence of artifact_prefix/artifact_extension'
+  tag_version:
+    description: 'If this push event is for a semver tag, this will be set to the tag but with the leading "v" discarded'
+  pr_number:
+    description: 'If this push event is for a pull request, this will be set to (the textual representation of) the pull request number'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
