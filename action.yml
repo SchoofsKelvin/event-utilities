@@ -1,5 +1,9 @@
-name: 'OnPush Utils'
+name: 'Event Utilities'
 description: 'Utilities to help with push events, e.g. calculating artifact names'
+author: Kelvin Schoofs
+branding:
+  icon: briefcase
+  color: blue
 inputs:
   artifact_prefix:
     description: 'The prefix that artifact names should start with. A trailing dash ("-") will be added if missing'
