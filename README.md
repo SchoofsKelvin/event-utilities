@@ -80,7 +80,7 @@ with:
 ```yml
 - name: Run utilities
   id: utils
-  uses: SchoofsKelvin/utils-action@v1
+  uses: SchoofsKelvin/event-utilities@v1
   with:
     artifact_prefix: "my-extension"
     artifact_extension: "vsix"
