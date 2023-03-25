@@ -4,8 +4,8 @@
     "description": "Utilities to help with push/pull_request events, e.g. calculating artifact names",
     "main": "dist/index.js",
     "scripts": {
-        "build": "ncc build --target es2019 src/index.ts",
-        "watch": "ncc build --target es2019 -w src/index.ts"
+        "build": "ncc build --target es2022 src/index.ts",
+        "watch": "ncc build --target es2022 -w src/index.ts"
     },
     "author": {
         "name": "Kelvin Schoofs",
@@ -18,12 +18,12 @@
     },
     "license": "LGPL-3.0-only",
     "dependencies": {
-        "@actions/core": "^1.2.6",
-        "@actions/github": "^4.0.0"
+        "@actions/core": "^1.10.0",
+        "@actions/github": "^5.1.1"
     },
     "devDependencies": {
-        "@types/node": "^12",
-        "@vercel/ncc": "^0.27.0",
-        "typescript": "^4.1.5"
+        "@types/node": "^18",
+        "@vercel/ncc": "^0.36.1",
+        "typescript": "~5.0.2"
     }
 }
