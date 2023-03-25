@@ -11481,10 +11481,6 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
 const SEMVER_REGEX = /^v(\d+\.\d+\.\d+.*)$/;
-function setOutput(key, value) {
-    core.info(`Setting output ${key} to: ${typeof value === 'string' ? value : JSON.stringify(value)}`);
-    core.setOutput(key, value);
-}
 async function run() {
     let artifact_prefix = core.getInput('artifact_prefix');
     if (artifact_prefix && !artifact_prefix.endsWith('-')) {
@@ -11503,7 +11499,7 @@ async function run() {
     if (tag_name) {
         const [, tag_version] = tag_name.match(SEMVER_REGEX) || [];
         if (tag_version) {
-            setOutput('tag_version', tag_version);
+            core.setOutput('tag_version', tag_version);
             formatted_name = tag_version;
         }
         else {
@@ -11514,7 +11510,7 @@ async function run() {
         const match = ref.match(/^refs\/pull\/(\d+)\/.*/);
         if (match) {
             const pr_number = parseInt(match[1]);
-            setOutput('pr_number', pr_number);
+            core.setOutput('pr_number', pr_number);
             formatted_name = `pr-${pr_number}`;
         }
         else {
@@ -11535,12 +11531,12 @@ async function run() {
         formatted_name += `-${short_sha}`;
     }
     formatted_name = formatted_name.replace(/\//g, '-').replace(/[^\w\.\-]/g, '');
-    setOutput('formatted_name', formatted_name);
+    core.setOutput('formatted_name', formatted_name);
     const artifact_name = `${artifact_prefix}${formatted_name}${artifact_extension}`;
-    setOutput('artifact_name', artifact_name);
+    core.setOutput('artifact_name', artifact_name);
 }
 if (require.main === require.cache[eval('__filename')]) {
-    core.info('Running on-push-utils-action');
+    core.info('Running SchoofsKelvin@event-utilities');
     run().catch(err => {
         core.setFailed(err);
         process.exit(core.ExitCode.Failure);
